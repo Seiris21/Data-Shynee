@@ -1,5 +1,6 @@
 library(shiny)
 library(ggplot2)
+library(miscTools)
 source("data_read.R")
 
 ls_source1<-c("/Users/sdurinck/src/R/LINCStest/LI4V01105_A01_04092015_MCF7_midsection_PBS_rescan1_singlecelldata_Main.txt", 
@@ -26,7 +27,7 @@ A0x<-rbind(A01,A02,A03,A04)
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
      output$plot1<-renderPlot({
-          output_Plot_single(A0x,input$yvalue)
+          output_Plot_single(A0x,input$xvalue,input$yvalue,input$graph_type)
      })
 })
 
